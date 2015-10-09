@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
     # for the default we should have no yellow highlighting in the beginning 
     @movies = Movie.order("#{order}")
     
-    if(@user_selected_ratings.keys.any?)
+    if(@user_selected_ratings.keys.any?) # returns false if the array of keys is empty
       @movies = @movies.where(:rating => @user_selected_ratings.keys)
     end  
 
